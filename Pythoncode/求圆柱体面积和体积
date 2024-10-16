@@ -1,0 +1,23 @@
+import math
+
+def cylinder_surface_area(radius, height):
+    # 计算圆柱体的表面积公式：2πr² + 2πrh
+    area = 2 * math.pi * radius**2 + 2 * math.pi * radius * height
+    return area
+
+def cylinder_volume(radius, height):
+    # 计算圆柱体的体积公式：πr²h
+    volume = math.pi * radius**2 * height
+    return volume
+
+# 获取用户输入的底面半径和高
+radius = float(input("请输入圆柱体的底面半径："))
+height = float(input("请输入圆柱体的高："))
+
+# 计算表面积和体积
+surface_area = cylinder_surface_area(radius, height)
+volume = cylinder_volume(radius, height)
+
+# 输出结果
+print(f"圆柱体的表面积为: {surface_area:.2f}")
+print(f"圆柱体的体积为: {volume:.2f}")

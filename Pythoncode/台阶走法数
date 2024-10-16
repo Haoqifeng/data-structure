@@ -1,0 +1,11 @@
+def count_ways(n):
+    if n == 0:
+        return 1  # 如果台阶数为0，则认为有一种走法：什么也不做
+    elif n < 0:
+        return 0  # 如果台阶数小于0，则没有走法
+    else:
+        return count_ways(n-1) + count_ways(n-2) + count_ways(n-3)
+
+# 从键盘读入台阶数
+n = int(input("请输入台阶数 n: "))
+print(f"对于 {n} 级台阶，共有 {count_ways(n)} 种走法。")

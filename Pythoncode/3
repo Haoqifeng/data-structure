@@ -1,0 +1,22 @@
+def binary_to_decimal(binary):
+    decimal = 0
+    # 将输入的二进制小数字符串按小数点分割成整数部分和小数部分
+    integer_part, fractional_part = binary.split('.')
+    
+    # 计算整数部分的十进制值
+    for i in range(len(integer_part)):
+        if integer_part[i] == '1':
+            decimal += 2 ** (len(integer_part) - i - 1)
+    
+    # 计算小数部分的十进制值
+    for i in range(len(fractional_part)):
+        if fractional_part[i] == '1':
+            decimal += 2 ** -(i + 1)
+    
+    return decimal
+
+# 主程序
+if __name__ == "__main__":
+    binary_input = input("请输入一个二进制小数（如0.101）： ")
+    decimal_output = binary_to_decimal(binary_input)
+    print("对应的十进制小数为：", decimal_output)

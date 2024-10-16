@@ -1,0 +1,24 @@
+def binary_to_hexadecimal(binary_num):
+    # 首先，确保二进制数长度是4的倍数，如果不是，在最前面补零
+    while len(binary_num) % 4 != 0:
+        binary_num = '0' + binary_num
+
+    # 初始化一个空字符串，用于存储转换后的十六进制数
+    hex_num = ""
+
+    # 循环处理每四位二进制数
+    for i in range(0, len(binary_num), 4):
+        # 获取当前四位二进制数
+        four_bits = binary_num[i:i+4]
+        # 将四位二进制数转换为十六进制数
+        decimal_value = int(four_bits, 2)
+        hex_digit = hex(decimal_value)[2:]  # 将转换后的十六进制数转换为字符串形式
+        hex_num += hex_digit  # 将转换后的十六进制数添加到结果字符串中
+
+    return hex_num.upper()  # 返回转换后的十六进制数，转换为大写字母表示
+
+# 主程序
+if __name__ == "__main__":
+    binary_input = input("请输入一个二进制整数: ")
+    hexadecimal_output = binary_to_hexadecimal(binary_input)
+    print(f"转换后的十六进制数为: {hexadecimal_output}")

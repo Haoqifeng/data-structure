@@ -1,0 +1,17 @@
+import random
+
+# 生成含有10个 [0, 100) 范围内随机整数的列表
+random_numbers = [random.randint(0, 99) for _ in range(10)]
+
+# 输出生成的随机数列表
+print("随机整数列表:", random_numbers)
+
+# 使用sort方法对列表进行排序
+random_numbers.sort()
+
+# 输出最小元素和最大元素
+min_number = random_numbers[0]
+max_number = random_numbers[-1]
+
+print(f"最小元素: {min_number}")
+print(f"最大元素: {max_number}")

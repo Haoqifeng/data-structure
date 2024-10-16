@@ -1,0 +1,26 @@
+def permutations(n):
+    def permute(current_permutation, remaining_numbers):
+        if len(remaining_numbers) == 0:
+            permutations_list.append(current_permutation)
+        else:
+            for i in range(len(remaining_numbers)):
+                new_permutation = current_permutation + remaining_numbers[i]
+                new_remaining = remaining_numbers[:i] + remaining_numbers[i+1:]
+                permute(new_permutation, new_remaining)
+
+    permutations_list = []
+    numbers = ''.join(str(num) for num in range(1, n+1))
+    permute('', numbers)
+    
+    return permutations_list
+
+# 从键盘读入 n 的值
+n = int(input("请输入要生成排列的数字个数 n: "))
+
+# 调用 permutations 函数生成排列
+perms = permutations(n)
+total = len(perms)
+print("Total =", total)
+print("Permutations:")
+for perm in perms:
+    print(perm, end=' ')
